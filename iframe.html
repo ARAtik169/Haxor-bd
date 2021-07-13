@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Try It Yourself </title>
+</head>
+<body>
+
+   <div id="demo"></div>
+
+   <script>
+      var httpRequest = new XMLHttpRequest();
+      
+      
+         httpRequest.onreadystatechange = writeContent;
+      
+         httpRequest.open("GET","data.pdf");
+         httpRequest.send();
+      
+      
+      function writeContent() {
+         if (httpRequest.readyState === 4) {
+            if(httpRequest.status == 200) {
+               document.getElementById("demo").innerHTML =
+               httpRequest.responseText;
+            } else {
+               alert('There was a problem with the request.');
+            }
+         }
+      }
+   </script>
+</body>
+</html>
